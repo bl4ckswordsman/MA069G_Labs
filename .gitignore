@@ -1,3 +1,5 @@
 /L2_py/venv/
 /L2_py/
 /L1/report/
+*.docx
+/.idea

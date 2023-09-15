@@ -11,16 +11,11 @@ F = cumsum(p);
 n = 10000; % Antal slumptal att generera
 u = rand(1, n); % Slumptal mellan 0 och 1
 
-% Använd inverse transform sampling för att generera fördelade slumptal
+% inverse transform sampling
 samples = sum(u > F') + 1;
-
-
-% Define custom bins
-bin_edges = 1.5:7.5;
 
 figure;
 histogram(samples, 'Normalization', 'probability', 'EdgeColor', 'w');
-
 
 %hist(samples-1,6);
 hold on;

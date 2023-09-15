@@ -10,19 +10,19 @@ F = cumsum(p);
 
 n = 10000; % Antal slumptal att generera
 u = rand(1, n); % Slumptal mellan 0 och 1
-%u = u *0.5;
 
 % Använd inverse transform sampling för att generera fördelade slumptal
-samples = sum(u < F') + 1;
-samp_r = flip(samples);
+samples = sum(u > F') + 1;
+
 
 % Define custom bins
 bin_edges = 1.5:7.5;
 
 figure;
-%histogram(samples-1, 'Normalization', 'probability', 'EdgeColor', 'w');
+histogram(samples, 'Normalization', 'probability', 'EdgeColor', 'w');
 
-hist(samples-1,6);
+
+%hist(samples-1,6);
 hold on;
 stem( p, 'r', 'LineWidth', 1.5);
 xlabel('Utfall');

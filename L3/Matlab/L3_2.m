@@ -3,8 +3,8 @@ clc
 clear
 
 P = [0.8, 0.15, 0.05;
-    0.75, 0.10, 0.15;
-    0.5, 0.25, 0.25];
+    0.10, 0.75, 0.15;
+    0.25, 0.25, 0.5];
 
 %1. Wolfram Alpha:
 % P={{0.8,0.15,0.05},{0.75,0.10,0.15},{0.5, 0.25, 0.25}}, x = {0.5, 0.25, 0.25}
@@ -30,7 +30,7 @@ eq2 = x1 * P(1,2) + x2 * P(2,2) + x3 * P(3,2) == x2;
 eq3 = x1 * P(1,3) + x2 * P(2,3) + x3 * P(3,3) == x3;
 eq4 = x1 + x2 + x3 == 1;
 
-losning = solve([eq1, eq2, eq3, eq4], [x1, x2, x3]);
-stationar_losning = [losning.x1, losning.x2, losning.x3];
+solution = solve([eq1, eq2, eq3, eq4], [x1, x2, x3]);
+stationar_losning = [solution.x1, solution.x2, solution.x3];
 
 disp(vpa(stationar_losning,6));

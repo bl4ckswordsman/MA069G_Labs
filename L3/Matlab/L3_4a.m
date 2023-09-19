@@ -2,8 +2,10 @@
 clc
 clear
 
-P = [0 1 0; 0 0 1; 1 0 0];
-v0 = [0.3 0.7 0.2];
+P = [0 1 0;
+    0 0 1;
+    1 0 0];
+v0 = [0.1 0.6 0.3];
 tol = 1e-5;
 v = v0;
 
@@ -18,6 +20,7 @@ while (err > tol)
     v = v_new;
     it = it + 1;
     if (it > 1e6)
+        % oändlig loop?
         break;
     end
 end

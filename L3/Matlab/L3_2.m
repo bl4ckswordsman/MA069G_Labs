@@ -15,13 +15,15 @@ P = [0.8, 0.15, 0.05;
 
 %1. eig funkt. för egenvärde och egenvekt.
 %[V, D] = eig(P');
-%stationar_losning = V(:,1) / sum(V(:,1));
+%statio_sol = V(:,1) / sum(V(:,1));
 
 %2. Vänster matrisdivision
 %A = P' - eye(size(P));
 %b = zeros(size(P, 1), 1);
-%stationar_losning = A \ b;
-%stationar_losning = stationar_losning / sum(stationar_losning);
+%statio_sol = A \ b;
+%statio_sol = stationar_losning / sum(stationar_losning);
+%FROM LECTURE:
+%g=(0 0... 1)\[P-eye(N),ones(N,1)]
 
 %3. Symboliska beräkningar:
 syms x1 x2 x3;
@@ -31,6 +33,6 @@ eq3 = x1 * P(1,3) + x2 * P(2,3) + x3 * P(3,3) == x3;
 eq4 = x1 + x2 + x3 == 1;
 
 solution = solve([eq1, eq2, eq3, eq4], [x1, x2, x3]);
-stationar_losning = [solution.x1, solution.x2, solution.x3];
+statio_sol = [solution.x1, solution.x2, solution.x3];
 
-disp(vpa(stationar_losning,6));
+disp(vpa(statio_sol,6));

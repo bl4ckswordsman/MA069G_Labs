@@ -2,31 +2,20 @@
 clc
 clear
 
+%a) Periodisk Markov kedja
 P = [0 1 0;
     0 0 1;
     1 0 0];
-v0 = [0.1 0.6 0.3];
-tol = 1e-5;
-v = v0;
 
-err = inf;
-it = 0;
-while (err > tol)
-    v_new = v*P;
-    % Ett-normen
-    err = norm(v_new - v, 1);
-    % Två-normen
-    %err = norm(v_new - v, 2);
-    v = v_new;
-    it = it + 1;
-    if (it > 1e6)
-        % oändlig loop?
-        break;
-    end
-end
+%L3_4b
+%b) Reducibel stokastisk process
+%(Två kedjor 1->2->3->4->1 och 1->2->3->4->1
+% som inte kan nå varandra)
+P2 = [0 1 0 0;
+      0 0 1 0;
+      0 0 0 1;
+      1 0 0 0];
 
-disp('Stationär lösning:');
-disp(v);
-
-disp(['Toleransnivå: ', num2str(tol)]);
-disp(['Antal iterationer: ', num2str(it)]);
+%L3_4c
+%c) Icke-minnesfri process
+P3 = [0.8 0.2; 0.3 0.7];

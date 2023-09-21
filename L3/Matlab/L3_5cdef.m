@@ -43,7 +43,13 @@ disp('Den stationära fördelningen:');
 disp(pi);
 
 %L3_5e
-%riktat medelvärde
-% Beräkna det genomsnittliga antalet kunder i butiken (L)
-L = sum((0:4) .* pi);
-disp(['Genomsnittligt antal kunder i butiken: ' num2str(L)]);
+% viktat medelvärde
+% Beräkna genomsnittligt antal kunder
+average_customers = sum((0:4) .* pi');
+
+disp(['Genomsnittligt antal kunder i butiken: ' num2str(average_customers)]);
+
+%L3_5f
+% Använd Little's sats för att beräkna genomsnittlig tid i butiken
+average_time_in_system = average_customers / lambda;
+disp(['Genomsnittlig tid i butiken per kund: ' num2str(average_time_in_system) ' minuter']);

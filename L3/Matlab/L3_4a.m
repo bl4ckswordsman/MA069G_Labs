@@ -4,8 +4,8 @@ clear
 
 %a) Periodisk Markov kedja
 P = [0 1 0;
-    0 0 1;
-    1 0 0];
+     0 0 1;
+     1 0 0];
 
 %L3_4b
 %b) Reducibel stokastisk process

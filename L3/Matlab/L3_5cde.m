@@ -30,8 +30,20 @@ disp(P);
 
 
 %L3_5d
-Q = P - eye(5); % Skapa Q-matrisen
-Q(:,5) = ones(5,1); % Lägg till kolumn med 1:or för balansekvationen
-b = zeros(5,1); 
-b(5) = 1; % Högerledet i balansekvationen
-pi = Q \ b; % Lös Q*pi = 
+% Här beräknas nollrummet för matrisen P' - eye(5),
+%  där P är en 5x5 matris. P' betyder transponeringen av P,
+%  och eye(5) är en 5x5 identitetsmatris 
+% Nollrummet för en matris är mängden av alla vektorer som
+%  multiplicerat med matrisen ger nollvektorn. Resultatet
+%  av denna operation är en vektor pi som innehåller stationära
+%  fördelningar för en Markov-kedja.
+pi = null(P' - eye(5));
+pi = pi / sum(pi); % Normalisera för att få en sannolikhetsfördelning
+disp('Den stationära fördelningen:');
+disp(pi);
+
+%L3_5e
+%riktat medelvärde
+% Beräkna det genomsnittliga antalet kunder i butiken (L)
+L = sum((0:4) .* pi);
+disp(['Genomsnittligt antal kunder i butiken: ' num2str(L)]);

@@ -76,3 +76,6 @@ fprintf('Optimal Wheat (x): %.2f hectares\n', x_opt(1));
 fprintf('Optimal Barley (y): %.2f hectares\n', x_opt(2));
 fprintf('Maximum Profit: %.2f krs\n', -max_profit);
 
+plot(x_opt(1), x_opt(2), '*')
+
+hold off

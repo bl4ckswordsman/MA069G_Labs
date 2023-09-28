@@ -3,8 +3,8 @@ clc
 clear
 
 hold on
-axis([95 120 0 15])
-x1 = [95:0.1:120];
+axis([0 120 0 40])
+x1 = [0:0.1:120];
 
 % Area constraint:
 % x + y <= 110
@@ -36,7 +36,7 @@ x13 = solve(-t+110==(-11*t+1250)/32,0);
 y13 = -x13+110;
 
 % Define the feasible region
-[X,Y] = meshgrid(x1,0:0.01:15);
+[X,Y] = meshgrid(x1,0:0.01:40);
 cond1 = X+Y<=110;
 cond2 = 110.5*X+198.5*Y<=12000;
 cond3 = 11*X+32*Y<=1250;
@@ -51,7 +51,7 @@ Z = cond1 & cond2 & cond3 & cond4 & cond5;
 %disp(vpa(max_val(idx),6))
 
 % Plot the feasible region
-imagesc(x1, [0 15], Z);
+imagesc(x1, [0 40], Z);
 colormap(flipud(gray));
 
 plot(x1, y1, 'g', x1, y2, 'r', x1, y3, 'b', 'LineWidth',2)
